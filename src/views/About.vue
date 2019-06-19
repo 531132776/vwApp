@@ -3,3 +3,8 @@
     <h1>This is an about page</h1>
   </div>
 </template>
+<style lang="less" scoped>
+  .about{
+    font-size: 15px;
+  }
+</style>

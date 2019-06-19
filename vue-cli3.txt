@@ -1,0 +1,45 @@
+vue-cli3.0项目中使用vw——相比flexible更原生的移动端解决方案
+
+以前喜欢用lib-flexible配合px2rem达到移动端适配的效果， 
+最近了解了下vw 与 vh单位，以viewport为基准，1vw 与 1vh分别为window.innerWidth 与 window.innerHeight的百分之一。
+yarn add postcss-px-to-viewport 安装依赖
+package.json中，在postcss中添加代码：
+ "postcss": {
+        "plugins": {
+            "autoprefixer": {},
+            "postcss-px-to-viewport": {
+                "viewportWidth": 750,
+                "minPixelValue": 1
+            }
+        }
+    },
+配置项：
+“viewportWidth”: 750, // 设计稿的宽度 
+“unitPrecision”: 3, // px转成vw、vh后小数点保留的位数 
+“minPixelValue”: 1, // 不转化为vw的最小px值
+附带连接：https://blog.csdn.net/qq_31393401/article/details/82354879;
+
+（另一种配置方法：https://blog.csdn.net/m0_37285193/article/details/84300100）下载的依赖包很多！！！！
+
+
+vue-cli3.0引入px2rem与lib-flexible 移动端适配
+lib-flexible
+作用：让网页根据设备dpr和宽度，利用viewport和html根元素的font-size配合rem来适配不同尺寸的移动端设备
+安装：yarn add lib-flexible
+引入：入口文件main.js中：import 'lib-flexible/flexible.js'
+
+pxtorem
+作用：将项目中css的px转成rem单位，免去计算烦恼
+安装：yarn add postcss-pxtorem
+配置：package.json内，在postcss内添加：
+ "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-pxtorem": {
+        "rootValue": 75, // 设计稿宽度的1/10,（JSON文件中不加注释，此行注释及下行注释均删除）
+        "propList":["*"] // 需要做转化处理的属性，如`hight`、`width`、`margin`等，`*`表示全部
+     }
+    }
+  },
+
+原文：https://blog.csdn.net/qq_31393401/article/details/82353267 
