@@ -5,6 +5,9 @@ import store from './store'
 
 import 'lib-flexible/flexible.js'
 
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts
 Vue.config.productionTip = false
 
 new Vue({
