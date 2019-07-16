@@ -25,17 +25,17 @@ export default {
         52,36,60,88,55,99,33,22,11,22,44,36, 10, 10, 20,9,55,33,44,22,11,15,61,75,
       31,52,36,60,88,52,36,60,88,55,99,33,22,11,22,44,36, 10, 10, 20,9,55,33,44,22,11,15,61,75,
       31,52,36,60,88,55,99,60,88,55,99,33,22,11,22,44,31,52,36,60,88,
-        52,36,60,88,55,99,33,22,11,22,44,20, 36, 10, 10, 20,9,55,33,44,22,11,15,61,75,
+        52,36,60,88,55,99,33,22,11,22,44,20, 36, 10, 10, 20,9,55,33,44,22,11,15,61,75,120,
       31,52,36,],
       lists:[]
     }
   },
   mounted(){
     this.data.map((v,i) =>{
-      console.log(v,i)
+      // console.log(v,i)
       this.lists.push(i+1)
     })
-    console.log(this.lists,'}}}}')
+    // console.log(this.lists,'}}}}')
     this.drawLine();
   },
   methods:{
@@ -85,10 +85,14 @@ export default {
           // name: '销量',
           type: 'bar',
           data: this.data,
+          
           barMinHeight:0,
           barMaxHeight:100,
           itemStyle:{
             normal:{
+              barWidth : function(val){
+            console.log(val)
+          },
               color:function(v){
                 // console.log(v)
 

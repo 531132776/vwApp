@@ -189,3 +189,11 @@ export function getSameMonthList(n, p) {
         method: 'get',
     })
 }
+
+//oss 获取参数
+export function GetOssInfo() {
+    return request({
+        url: '/gym-oss/oss/web',
+        method: 'get'
+    })
+}
